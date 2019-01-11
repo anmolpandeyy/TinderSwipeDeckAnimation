@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { View, ScrollView, Text, StyleSheet, Animated } from "react-native";
 import Deck from "./src/Deck";
+import { Card, Button } from "react-native-elements";
 
 const DATA = [
   {
@@ -47,14 +48,23 @@ const DATA = [
 
 class App extends Component {
   renderCard = item => {
-    return <Text key={item.id}>{item.text}</Text>;
+    return (
+      <Card key={item.id} title={item.text} image={{ uri: item.uri }}>
+        <Text style={{ marginHorizontal: 5 }}>Custom Card</Text>
+        <Button
+          icon={{ name: "code" }}
+          backgroundColor="#03A9F4"
+          title="View Now!"
+        />
+      </Card>
+    );
   };
 
   render() {
     return (
-      <ScrollView style={styles.container}>
+      <View style={styles.container}>
         <Deck data={DATA} renderCard={this.renderCard} />
-      </ScrollView>
+      </View>
     );
   }
 }
