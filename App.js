@@ -56,6 +56,7 @@ class App extends Component {
           backgroundColor="#03A9F4"
           title="View Now!"
         />
+        <View style={{ paddingBottom: 300 }} />
       </Card>
     );
   };
