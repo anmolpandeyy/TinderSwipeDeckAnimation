@@ -56,15 +56,25 @@ class App extends Component {
           backgroundColor="#03A9F4"
           title="View Now!"
         />
-        <View style={{ paddingBottom: 300 }} />
       </Card>
     );
   };
 
+  renderNoMoreCards = () => (
+    <Card title="All Done!">
+      <Text style={{ marginBottom: 10 }}>There's no more content!</Text>
+      <Button backgroundColor="#03A9F4" title="Get More!" />
+    </Card>
+  );
+
   render() {
     return (
       <View style={styles.container}>
-        <Deck data={DATA} renderCard={this.renderCard} />
+        <Deck
+          data={DATA}
+          renderCard={this.renderCard}
+          renderNoMoreCards={this.renderNoMoreCards}
+        />
       </View>
     );
   }
